@@ -1,0 +1,25 @@
+<h1 class="mt-3 font-weight-light">YouTube Videos</h1>
+<hr>
+
+<div class="card-columns">
+    <div class="card animate__animated animate__jello" *ngFor="let video of _videos">
+        <img [src]="video.thumbnails.high.url" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{video.title}}</h5>
+            <small>{{video.resourceId.videoId}}</small>
+            <p class="card-text">
+                <strong>Autor: </strong>{{video.channelTitle}}
+                <strong>Published at: </strong>{{video.publishedAt | date}}
+            </p>
+            <button (click)="showVideo(video)" class="btn btn-success btn-block">
+                Watch video
+            </button>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button (click)="getVideos()" class="btn btn-primary btn-block mt-3 mb-3">
+        Next page
+    </button>
+</div>
